@@ -1,30 +1,33 @@
 #include <iostream>
+
 #include <vector>
 
 using namespace std;
 
-bool canCrossChakravyuh(int p, vector<int> k, int a, int b) {
-    bool regenerated_k3 = false;  // Track if the third enemy regenerates
-    bool regenerated_k7 = false;  // Track if the seventh enemy regenerates
+bool canEscapeChakravyuh(int p, vector < int > k, int a, int b) {
+    bool k3_revived = false; // Track if the third enemy regenerates
+    bool k7_revived = false; // Track if the seventh enemy regenerates
     int power = p;
+    //"a" is no of times it can skip the battle
+    //"b" is no of times it can recharge its power
 
     for (int i = 0; i < 11; ++i) {
         // Check if the third and seventh enemies need to regenerate
-        if (i == 3 && !regenerated_k3) {
-            k[i] += k[2] / 2;  // The third enemy attacks again
-            regenerated_k3 = true;
+        if (i == 3 && !k3_revived) {
+            k[i] += k[2] / 2; // The third enemy will attacks again
+            k3_revived = true;
         }
-        if (i == 7 && !regenerated_k7) {
-            k[i] += k[6] / 2;  // The seventh enemy attacks again
-            regenerated_k7 = true;
+        if (i == 7 && !k7_revived) {
+            k[i] += k[6] / 2; // The seventh enemy will attacks again
+            k7_revived = true;
         }
 
         // Recharge Abhimanyu's power if needed
         if (b > 0 && power < k[i]) {
             b--;
-            power = p;  // Recharge power to the initial value
+            power = p; // Recharge power to the initial value
         }
-        
+
         // If Abhimanyu's power is less than the enemy's power
         if (power < k[i]) {
             // Check if Abhimanyu can skip this battle
@@ -32,7 +35,7 @@ bool canCrossChakravyuh(int p, vector<int> k, int a, int b) {
                 a--;
                 continue;
             } else {
-                return false;
+                return false; // Abhimanu will lose the battle
             }
         }
 
@@ -47,30 +50,54 @@ bool canCrossChakravyuh(int p, vector<int> k, int a, int b) {
         }
     }
 
-    return true;  // Abhimanyu successfully crosses all circles
+    return true; // Abhimanyu successfully crosses all circles
 }
 
 int main() {
     // Test case 1
-    int p1 = 50;
-    vector<int> k1 = {10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60};
+    int pow1 = 50;
+    vector < int > k1 = {
+        10,
+        15,
+        20,
+        25,
+        30,
+        35,
+        40,
+        45,
+        50,
+        55,
+        60
+    };
     int a1 = 2;
     int b1 = 1;
-    if (canCrossChakravyuh(p1, k1, a1, b1)) {
-        cout << "Abhimanyu successfully crosses Chakravyuh in test case 1." << endl;
+    if (canEscapeChakravyuh(pow1, k1, a1, b1)) {
+        cout << "Test Case 1: Abhimanyu successfully crosses Chakravyuh" << endl;
     } else {
-        cout << "Abhimanyu fails to cross Chakravyuh in test case 1." << endl;
+        cout << "Test Case 1: Abhimanyu was not bable to cross Chakravyuh." << endl;
     }
 
     // Test case 2
-    int p2 = 50;
-    vector<int> k2 = {10, 15, 20, 25, 5, 25, 40, 10, 55, 10, 60};
+    int pow2 = 50;
+    vector < int > k2 = {
+        10,
+        15,
+        20,
+        25,
+        5,
+        25,
+        40,
+        10,
+        55,
+        10,
+        60
+    };
     int a2 = 2;
     int b2 = 4;
-    if (canCrossChakravyuh(p2, k2, a2, b2)) {
-        cout << "Abhimanyu successfully crosses Chakravyuh in test case 2." << endl;
+    if (canEscapeChakravyuh(pow2, k2, a2, b2)) {
+        cout << "Test Case 2: Abhimanyu successfully crosses Chakravyuh" << endl;
     } else {
-        cout << "Abhimanyu fails to cross Chakravyuh in test case 2." << endl;
+        cout << "Test Case 2: Abhimanyu was not bable to cross Chakravyuh." << endl;
     }
 
     return 0;
