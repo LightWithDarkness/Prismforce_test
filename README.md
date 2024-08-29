@@ -24,9 +24,11 @@ In this simulation, Abhimanyu encounters 11 enemies arranged in a circular forma
 ## How It Works
 
 1. **Initialization**: The program starts with Abhimanyu's initial power and a list of enemy power levels.
-2. **Regeneration**: The 3rd and 7th enemies regenerate after the initial attack.
-3. **Battles**: Abhimanyu battles each enemy in sequence. He can either defeat the enemy, recharge his power at the start, or skip the battle.
-4. **Outcome**: The program outputs whether Abhimanyu successfully crosses all circles of the Chakravyuh.
+2. **Regeneration**: The 3rd and 7th enemies will regenerate and attack again.
+3. **Recharge**: Recharge Abhimanyu power if not sufficient.
+4. **Skip**: Skip the battle if power is still not sufficient f can't skip then fail.
+5. **Battles**: Abhimanyu battles while battling in each circle will result in loss of the same power from Abhimanyu as the enemy.
+6. **Outcome**: The program outputs whether Abhimanyu successfully crosses all circles of the Chakravyuh or not.
 
 ## Usage
 
