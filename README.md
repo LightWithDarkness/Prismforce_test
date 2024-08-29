@@ -32,7 +32,7 @@ In this simulation, Abhimanyu encounters 11 enemies arranged in a circular forma
 
 1. **Compilation**: Compile the program using a C++ compiler.
    ```bash
-   g++ soln.cpp -o solution
+   g++ soln.cpp 
 
 ## Example Output
 - **Abhimanyu successfully crosses Chakravyuh in test case 1.**
