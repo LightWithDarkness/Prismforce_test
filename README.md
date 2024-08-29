@@ -39,5 +39,7 @@ In this simulation, Abhimanyu encounters 11 enemies arranged in a circular forma
 - **Abhimanyu successfully crosses Chakravyuh in test case 2.**
   
 
-This README file now includes the image of the output `output.jpg` in the same directory as your `README.md` file. Let me know if you need any further adjustments!
+This README file now includes the image of the output `output.png` in the same directory as your `README.md` file. Let me know if you need any further adjustments!
+![output](https://github.com/user-attachments/assets/7784f97c-e4dd-4307-bd5e-29de4f198789)
+
 
